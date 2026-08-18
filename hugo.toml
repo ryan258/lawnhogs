@@ -1,0 +1,62 @@
+baseURL = 'https://lawnhogs.example.com/'
+locale = 'en-us'
+title = 'Lawn Hogs | Premium Lugged Outdoors™ — We Cut Grass. You Touch Grass.'
+paginate = 10
+
+[params]
+  brandName = "Lawn Hogs"
+  tagline = "Premium Lugged Outdoors™"
+  slogan = "WE CUT GRASS. YOU TOUCH GRASS."
+  description = "The premier luxury-grade lawn dominance and turf enforcement agency. Razor-sharp edging, aggressive striping, zero excuses. Your grass has been warned."
+  phone = "1-800-MOW-HOGS"
+  email = "dominance@lawnhogs.example.com"
+  headquarters = "The Hog Pen, Sector 4, Suburbia, USA"
+  quoteUrl = "/quote/"
+  colors = { hogGreen = "#1E3D2F", freshCut = "#6BA368", pigPink = "#FF9DB5", dirtBrown = "#8B6B4E", grassClippings = "#F6F2E9", tireBlack = "#111111" }
+
+[menu]
+  [[menu.main]]
+    identifier = "services"
+    name = "Services"
+    url = "/services/"
+    weight = 10
+  [[menu.main]]
+    identifier = "hog-standard"
+    name = "The Hog Standard"
+    url = "/hog-standard/"
+    weight = 20
+  [[menu.main]]
+    identifier = "work"
+    name = "The Hog Files"
+    url = "/work/"
+    weight = 30
+  [[menu.main]]
+    identifier = "crew"
+    name = "Meet the Hogs"
+    url = "/crew/"
+    weight = 40
+  [[menu.main]]
+    identifier = "blog"
+    name = "Hog Talk"
+    url = "/blog/"
+    weight = 50
+  [[menu.main]]
+    identifier = "merch"
+    name = "Supply Co."
+    url = "/merch/"
+    weight = 60
+  [[menu.main]]
+    identifier = "faq"
+    name = "FAQ"
+    url = "/faq/"
+    weight = 70
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 80
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
