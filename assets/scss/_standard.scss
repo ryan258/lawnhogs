@@ -87,19 +87,249 @@
   @include e(item) {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.7rem;
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid $color-line-dark;
     color: $color-grass-clippings !important;
-    padding: 0.6rem 0.9rem;
+    padding: 0.65rem 0.95rem;
     border-radius: $radius-sm;
     font-size: 0.78rem;
     font-weight: 600;
   }
 
+  // Mockup: pink disc with a dark tick, not a bare pink glyph.
   @include e(icon) {
-    color: $color-pig-pink;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: 50%;
+    background-color: $color-pig-pink;
+    color: $color-hog-green;
+    font-size: 0.65rem;
     font-weight: 900;
+    line-height: 1;
+  }
+}
+
+// ==========================================================================
+// The Hog Standard™ page (BEM: .hs-)
+// ==========================================================================
+
+.hs-hero {
+  text-align: center;
+  padding-top: clamp(3.5rem, 7vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 7vw, 5rem);
+
+  @include e(eyebrow) {
+    display: block;
+    font-family: $font-slab;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: $color-grass-clippings;
+    margin-bottom: 1.5rem;
+  }
+
+  @include e(title) {
+    font-size: clamp(3rem, 9vw, 6.75rem);
+    line-height: 0.9;
+    margin-bottom: 1.25rem;
+  }
+
+  // On green, the deep pink goes muddy — the hero tagline takes the bright one.
+  @include e(tagline) {
+    display: block;
+    font-size: clamp(1.35rem, 3.5vw, 2rem);
+    color: $color-pig-pink;
+    margin-bottom: 1.75rem;
+
+    u {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+    }
+  }
+
+  @include e(lede) {
+    color: $color-text-on-dark;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 48ch;
+    margin: 0 auto;
+  }
+}
+
+.hs-stars {
+  text-align: center;
+  color: $color-pig-pink;
+  font-size: 0.8rem;
+  letter-spacing: 0.6em;
+  margin-bottom: 0.85rem;
+}
+
+// Title bracketed by rules that run out to the container edges.
+.hs-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2.5rem);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  color: $color-hog-green;
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1 1 0;
+    max-width: 150px;
+    height: 2px;
+    background-color: $color-hog-green;
+  }
+}
+
+.hs-commandments {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+
+  @include mq(md) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.hs-commandment {
+  @include card-base;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 1.35rem 1.5rem;
+
+  @include e(num) {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background-color: $color-hog-green;
+    color: $color-grass-clippings;
+    font-family: $font-display;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  @include e(title) {
+    font-size: 1.1rem;
+    color: $color-hog-green;
+    margin-bottom: 0.35rem;
+  }
+
+  @include e(text) {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: $color-text-body;
+    margin: 0;
+  }
+}
+
+.hs-audit {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.55fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  background-color: $color-hog-green;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-hard-green;
+  padding: clamp(2rem, 4vw, 3rem);
+  padding-bottom: clamp(3rem, 5vw, 4rem);
+
+  @include mq(lg) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // Decorative blade fringe along the bottom edge.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 16px;
+    background-image:
+      linear-gradient(135deg, $color-hog-green-dark 25%, transparent 25%),
+      linear-gradient(225deg, $color-hog-green-dark 25%, transparent 25%);
+    background-size: 16px 16px;
+    pointer-events: none;
+  }
+
+  @include e(icon) {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.9rem;
+  }
+
+  @include e(title) {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.05;
+    color: $color-grass-clippings;
+    margin-bottom: 1rem;
+  }
+
+  @include e(text) {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: $color-text-on-dark;
+    margin: 0;
+  }
+
+  @include e(grid) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+    align-content: start;
+
+    @include mq(md) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @include e(cta) {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+.hs-audit .check-item {
+  font-size: 0.72rem;
+}
+
+.hs-cta {
+  padding-top: clamp(2.25rem, 4vw, 3.25rem);
+  padding-bottom: clamp(2.25rem, 4vw, 3.25rem);
+
+  @include e(inner) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  @include e(title) {
+    font-size: clamp(1.4rem, 3.2vw, 2.15rem);
+    margin-bottom: 0.4rem;
+  }
+
+  @include e(text) {
+    font-size: 0.95rem;
+    color: rgba(17, 17, 17, 0.78);
+    margin: 0;
   }
 }
 
