@@ -1,4 +1,5 @@
-baseURL = 'https://lawnhogs.example.com/'
+baseURL = 'https://ryan258.github.io/lawnhogs/'
+canonifyURLs = true
 locale = 'en-us'
 title = 'Lawn Hogs | Premium Lugged Outdoors™ — We Cut Grass. You Touch Grass.'
 paginate = 10
