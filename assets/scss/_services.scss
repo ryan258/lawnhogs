@@ -1,0 +1,152 @@
+// ==========================================================================
+// LAWN HOGS — BEM SERVICES SECTION & CARDS
+// ==========================================================================
+
+
+.c-services {
+  @include e(grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+}
+
+.services-grid { @extend .c-services__grid; }
+
+// Service Card Component (BEM: .c-service-card)
+.c-service-card,
+.service-card {
+  @include card-base;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  // Flagship Modifier
+  &--flagship,
+  &.service-card-flagship {
+    background-color: $color-hog-green;
+    color: $color-grass-clippings;
+    border-color: $color-tire-black;
+
+    h3, .c-service-card__title, .service-title {
+      color: $color-grass-clippings;
+    }
+
+    .c-service-card__tagline, .service-tagline {
+      color: $color-pig-pink;
+    }
+
+    .c-service-card__desc, .service-desc {
+      color: #d1e2da;
+    }
+
+    .c-service-card__number, .service-number {
+      color: rgba(255, 157, 181, 0.3);
+    }
+
+    .c-service-card__icon, .service-icon-box {
+      background-color: $color-pig-pink;
+      color: $color-tire-black;
+    }
+
+    .c-service-card__features, .service-features {
+      border-top-color: rgba(255, 255, 255, 0.2);
+
+      li {
+        color: $color-grass-clippings;
+
+        &::before {
+          color: $color-pig-pink;
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: 8px 8px 0px $color-pig-pink;
+    }
+  }
+
+  @include e(header) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+  }
+
+  @include e(number) {
+    font-family: $font-display;
+    font-size: 2.5rem;
+    color: rgba(30, 61, 47, 0.2);
+    line-height: 0.8;
+  }
+
+  @include e(icon) {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-grass-clippings-alt;
+    border: 2px solid $color-tire-black;
+    border-radius: $radius-sm;
+    font-size: 1.5rem;
+  }
+
+  @include e(title) {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: $color-tire-black;
+  }
+
+  @include e(tagline) {
+    font-family: $font-slab;
+    font-size: 0.95rem;
+    color: #3b2818;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  @include e(desc) {
+    font-size: 0.98rem;
+    color: #222222;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  @include e(features) {
+    list-style: none;
+    margin-bottom: 2rem;
+    border-top: 1px dashed #d1c8b8;
+    padding-top: 1rem;
+
+    li {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #222222;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &::before {
+        content: '✓';
+        color: $color-fresh-cut-dark;
+        font-weight: 900;
+      }
+    }
+  }
+
+  @include e(footer) {
+    margin-top: auto;
+  }
+}
+
+.service-card-header { @extend .c-service-card__header; }
+.service-number { @extend .c-service-card__number; }
+.service-icon-box { @extend .c-service-card__icon; }
+.service-title { @extend .c-service-card__title; }
+.service-tagline { @extend .c-service-card__tagline; }
+.service-desc { @extend .c-service-card__desc; }
+.service-features { @extend .c-service-card__features; }
+.service-card-footer { @extend .c-service-card__footer; }

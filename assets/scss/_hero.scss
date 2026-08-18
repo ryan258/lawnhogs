@@ -1,0 +1,165 @@
+// ==========================================================================
+// LAWN HOGS — BEM HERO SECTION
+// ==========================================================================
+
+
+.c-hero,
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background-color: $color-hog-green;
+  overflow: hidden;
+  border-bottom: 3px solid $color-tire-black;
+  padding: clamp(3rem, 6vw, 6rem) 0;
+
+  @include e(media) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.72) contrast(1.15);
+    }
+  }
+
+  @include e(overlay) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(19, 39, 30, 0.95) 0%, rgba(30, 61, 47, 0.8) 50%, rgba(17, 17, 17, 0.4) 100%);
+    z-index: 2;
+  }
+
+  @include e(content) {
+    position: relative;
+    z-index: 3;
+    max-width: 820px;
+  }
+
+  @include e(badge) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: $color-pig-pink;
+    color: $color-tire-black;
+    font-family: $font-slab;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.9rem;
+    border: 2px solid $color-tire-black;
+    box-shadow: 3px 3px 0px $color-tire-black;
+    margin-bottom: 1.5rem;
+    transform: rotate(-1.5deg);
+  }
+
+  @include e(title) {
+    color: $color-grass-clippings;
+    font-size: clamp(3.5rem, 8vw, 7.25rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+
+    .title-accent {
+      color: $color-pig-pink;
+      display: block;
+    }
+  }
+
+  @include e(description) {
+    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+    color: #f1ede3;
+    line-height: 1.4;
+    margin-bottom: 2.25rem;
+    font-weight: 500;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+
+  @include e(ctas) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    position: relative;
+
+    @include mq(md) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  @include e(annotation) {
+    position: absolute;
+    bottom: -32px;
+    left: 20px;
+  }
+
+  @include e(mascot-badge) {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 4;
+    background-color: $color-grass-clippings;
+    border: 3px solid $color-tire-black;
+    box-shadow: 6px 6px 0px $color-tire-black;
+    padding: 1rem;
+    border-radius: $radius-md;
+    max-width: 280px;
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    transform: rotate(2deg);
+
+    @include mq(lg) {
+      display: none;
+    }
+  }
+}
+
+.hero-bg-media { @extend .c-hero__media; }
+.hero-bg-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72) contrast(1.15); }
+.hero-overlay { @extend .c-hero__overlay; }
+.hero-content { @extend .c-hero__content; }
+.hero-tagline-badge { @extend .c-hero__badge; }
+.hero-title { @extend .c-hero__title; }
+.hero-description { @extend .c-hero__description; }
+.hero-cta-group { @extend .c-hero__ctas; }
+.cta-annotation { @extend .c-hero__annotation; }
+.hero-mascot-badge { @extend .c-hero__mascot-badge; }
+
+.mascot-avatar-small {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid $color-tire-black;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+.mascot-quote-content {
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.mascot-quote-author {
+  font-family: $font-slab;
+  font-size: 0.75rem;
+  color: $color-hog-green;
+  font-weight: 700;
+  display: block;
+  margin-top: 0.35rem;
+}

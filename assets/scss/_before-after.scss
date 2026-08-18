@@ -1,0 +1,147 @@
+// ==========================================================================
+// LAWN HOGS — BEM BEFORE / AFTER SLIDER & STATS
+// ==========================================================================
+
+
+.c-before-after,
+.before-after-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+  border: 3px solid $color-tire-black;
+  box-shadow: $shadow-hard;
+  border-radius: $radius-md;
+  overflow: hidden;
+  background-color: $color-tire-black;
+
+  @include e(container) {
+    position: relative;
+    width: 100%;
+    height: clamp(380px, 50vw, 600px);
+    user-select: none;
+    overflow: hidden;
+  }
+
+  @include e(img) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &--after {
+      z-index: 1;
+    }
+  }
+
+  @include e(before-wrapper) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  @include e(handle) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: $color-pig-pink;
+    z-index: 3;
+    cursor: ew-resize;
+    transform: translateX(-50%);
+  }
+
+  @include e(handle-button) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background-color: $color-pig-pink;
+    color: $color-tire-black;
+    border: 2px solid $color-tire-black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+
+  @include e(badge) {
+    position: absolute;
+    top: 1.5rem;
+    z-index: 4;
+    font-family: $font-slab;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: $radius-sm;
+    border: 2px solid $color-tire-black;
+
+    &--before {
+      left: 1.5rem;
+      background-color: #f7a361;
+      color: $color-tire-black;
+    }
+
+    &--after {
+      right: 1.5rem;
+      background-color: $color-fresh-cut-dark;
+      color: $color-white;
+    }
+  }
+}
+
+.ba-slider-container { @extend .c-before-after__container; }
+.ba-img { @extend .c-before-after__img; }
+.ba-img-after { @extend .c-before-after__img--after; }
+.ba-img-before-wrapper { @extend .c-before-after__before-wrapper; }
+.ba-img-before { width: 1100px; max-width: none; height: 100%; }
+.ba-handle { @extend .c-before-after__handle; }
+.ba-handle-button { @extend .c-before-after__handle-button; }
+.ba-badge-label { @extend .c-before-after__badge; }
+.ba-badge-before { @extend .c-before-after__badge--before; }
+.ba-badge-after { @extend .c-before-after__badge--after; }
+
+// Stats Grid Component (BEM: .c-stats, .c-stat-card)
+.c-stats,
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.c-stat-card,
+.stat-card {
+  @include card-base;
+  padding: 1.75rem 1.25rem;
+
+  @include e(number) {
+    font-family: $font-display;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    color: $color-hog-green;
+    line-height: 0.9;
+    margin-bottom: 0.25rem;
+  }
+
+  @include e(label) {
+    font-family: $font-slab;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $color-tire-black;
+    text-transform: uppercase;
+  }
+}
+
+.stat-number { @extend .c-stat-card__number; }
+.stat-label { @extend .c-stat-card__label; }

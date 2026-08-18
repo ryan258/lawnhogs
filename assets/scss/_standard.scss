@@ -1,0 +1,98 @@
+// ==========================================================================
+// LAWN HOGS — BEM THE HOG STANDARD™ & BEFORE/AFTER SLIDER
+// ==========================================================================
+
+
+// The Hog Standard (BEM: .c-standard, .c-audit)
+.c-standard,
+.hog-standard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+
+  @include e(col) {
+    background-color: $color-hog-green-dark;
+    border: 2px solid rgba(255,255,255,0.1);
+    padding: 2.5rem;
+    border-radius: $radius-sm;
+    position: relative;
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: $color-fresh-cut;
+    }
+  }
+
+  @include e(num) {
+    font-family: $font-display;
+    font-size: 3.5rem;
+    color: $color-pig-pink;
+    line-height: 0.9;
+    margin-bottom: 0.75rem;
+  }
+
+  @include e(title) {
+    font-size: 1.85rem;
+    color: $color-grass-clippings;
+    margin-bottom: 1rem;
+  }
+
+  @include e(text) {
+    color: #c9d8d1;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.standard-col { @extend .c-standard__col; }
+.standard-num { @extend .c-standard__num; }
+.standard-title { @extend .c-standard__title; }
+.standard-text { @extend .c-standard__text; }
+
+// 42-Point Audit Checklist (BEM: .c-audit)
+.c-audit,
+.checklist-interactive {
+  background-color: $color-hog-green-dark;
+  border: 2px solid $color-tire-black;
+  box-shadow: $shadow-hard-pink;
+  border-radius: $radius-md;
+  padding: 2.5rem;
+
+  @include e(header) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @include e(grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  @include e(item) {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgba(255,255,255,0.05);
+    padding: 0.75rem 1rem;
+    border-radius: $radius-sm;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  @include e(icon) {
+    color: $color-pig-pink;
+    font-weight: 900;
+  }
+}
+
+.checklist-header { @extend .c-audit__header; }
+.checklist-items-grid { @extend .c-audit__grid; }
+.check-item { @extend .c-audit__item; }
+.check-icon { @extend .c-audit__icon; }

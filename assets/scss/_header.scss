@@ -1,0 +1,314 @@
+// ==========================================================================
+// LAWN HOGS — BEM HEADER & NAVIGATION
+// ==========================================================================
+
+
+// Announcement Bar (BEM: .c-announcement)
+.c-announcement,
+.top-announcement-bar {
+  background-color: $color-tire-black;
+  color: $color-grass-clippings;
+  font-size: 0.8rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #333;
+
+  @include e(inner) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    @include mq(md) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @include e(pill) {
+    background-color: $color-pig-pink;
+    color: $color-tire-black;
+    font-weight: 800;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  @include e(text) {
+    letter-spacing: 0.03em;
+    font-weight: 500;
+  }
+
+  @include e(link) {
+    color: $color-fresh-cut-light;
+    font-weight: 700;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-pig-pink;
+    }
+  }
+}
+
+.announcement-inner { @extend .c-announcement__inner; }
+.announcement-pill { @extend .c-announcement__pill; }
+.announcement-text { @extend .c-announcement__text; }
+.announcement-link { @extend .c-announcement__link; }
+
+// Main Header (BEM: .c-header)
+.c-header,
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: $color-grass-clippings;
+  border-bottom: 2px solid $color-tire-black;
+  transition: all $transition-normal;
+
+  &--scrolled,
+  &.is-scrolled {
+    background-color: rgba(246, 242, 233, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+
+  @include e(main) {
+    padding: 0.75rem 0;
+  }
+
+  @include e(container) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  @include e(logo) {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @include e(logo-mark) {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  @include e(logo-icon) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include e(brand-title) {
+    font-family: $font-display;
+    font-size: 2rem;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    color: $color-hog-green;
+  }
+
+  @include e(brand-sub) {
+    font-family: $font-slab;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: $color-dirt-brown-dark;
+    font-weight: 700;
+  }
+
+  @include e(nav) {
+    display: flex;
+    align-items: center;
+    @include mq(lg) {
+      display: none;
+    }
+  }
+
+  @include e(nav-list) {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: clamp(0.75rem, 1.8vw, 1.5rem);
+  }
+
+  @include e(nav-link) {
+    font-family: $font-slab;
+    font-size: 0.88rem;
+    letter-spacing: 0.03em;
+    color: $color-tire-black;
+    padding: 0.4rem 0.2rem;
+    position: relative;
+    font-weight: 700;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: $color-pig-pink;
+      transition: width $transition-fast;
+    }
+
+    &:hover::after,
+    &--active::after,
+    &.active::after {
+      width: 100%;
+    }
+  }
+
+  @include e(actions) {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @include e(cta-wrapper) {
+    position: relative;
+  }
+
+  @include e(cta-sticker) {
+    position: absolute;
+    bottom: -18px;
+    right: -8px;
+    font-size: 0.7rem;
+    pointer-events: none;
+    z-index: 2;
+    white-space: nowrap;
+  }
+
+  @include e(mobile-toggle) {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 38px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+
+    @include mq(lg) {
+      display: flex;
+    }
+
+    span {
+      height: 3px;
+      width: 100%;
+      background-color: $color-tire-black;
+      border-radius: 2px;
+      transition: all $transition-fast;
+    }
+  }
+}
+
+// Utility backward-compatible classes
+.header-main { @extend .c-header__main; }
+.header-container { @extend .c-header__container; }
+.brand-logo { @extend .c-header__logo; }
+.logo-mark { @extend .c-header__logo-mark; }
+.hog-logo-icon { @extend .c-header__logo-icon; }
+.brand-title { @extend .c-header__brand-title; }
+.brand-sub { @extend .c-header__brand-sub; }
+.desktop-nav { @extend .c-header__nav; }
+.nav-list { @extend .c-header__nav-list; }
+.nav-link { @extend .c-header__nav-link; }
+.header-actions { @extend .c-header__actions; }
+.cta-wrapper { @extend .c-header__cta-wrapper; }
+.header-sticker { @extend .c-header__cta-sticker; }
+.mobile-toggle { @extend .c-header__mobile-toggle; }
+.hamburger-bar { height: 3px; width: 100%; background-color: $color-tire-black; border-radius: 2px; }
+
+// Mobile Drawer Component (BEM: .c-drawer)
+.c-drawer,
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 360px;
+  height: 100vh;
+  background-color: $color-grass-clippings;
+  border-left: 3px solid $color-tire-black;
+  box-shadow: -8px 0 24px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+
+  &--open,
+  &.is-open {
+    right: 0;
+  }
+
+  @include e(inner) {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  @include e(header) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid $color-tire-black;
+    padding-bottom: 1rem;
+  }
+
+  @include e(close) {
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  @include e(nav-list) {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  @include e(nav-link) {
+    font-family: $font-display;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    color: $color-hog-green;
+    display: block;
+
+    &:hover {
+      color: $color-pig-pink-deep;
+      transform: translateX(6px);
+    }
+  }
+
+  @include e(footer) {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 2px solid $color-grass-clippings-alt;
+  }
+
+  @include e(hotline) {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+
+    strong {
+      display: block;
+      font-family: $font-display;
+      font-size: 1.5rem;
+      color: $color-hog-green;
+    }
+  }
+}
+
+.mobile-drawer-inner { @extend .c-drawer__inner; }
+.mobile-drawer-header { @extend .c-drawer__header; }
+.mobile-close { @extend .c-drawer__close; }
+.mobile-nav-list { @extend .c-drawer__nav-list; }
+.mobile-nav-link { @extend .c-drawer__nav-link; }
+.mobile-drawer-footer { @extend .c-drawer__footer; }
+.mobile-hotline { @extend .c-drawer__hotline; }

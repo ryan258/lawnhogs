@@ -1,0 +1,76 @@
+// ==========================================================================
+// LAWN HOGS — SASS MIXINS
+// ==========================================================================
+
+
+// Breakpoint Mixin
+@mixin mq($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (max-width: 640px) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (max-width: 1080px) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (max-width: 1280px) { @content; }
+  } @else {
+    @media (max-width: $breakpoint) { @content; }
+  }
+}
+
+// BEM Helper Mixins
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Physical Button Base
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: $font-display;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.85rem;
+  border-radius: $radius-sm;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: transform $transition-fast, box-shadow $transition-fast, background-color $transition-fast;
+  white-space: nowrap;
+  position: relative;
+  text-decoration: none;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px $color-tire-black;
+  }
+}
+
+// Card Base
+@mixin card-base {
+  background-color: $color-white;
+  border: 2px solid $color-tire-black;
+  box-shadow: $shadow-hard;
+  border-radius: $radius-sm;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-hard-lg;
+  }
+}
