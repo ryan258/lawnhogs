@@ -7,12 +7,12 @@
 .before-after-wrapper {
   position: relative;
   max-width: 1100px;
-  margin: 0 auto 3rem auto;
-  border: 3px solid $color-tire-black;
+  margin: 0 auto;
+  border: 1px solid $color-line;
   box-shadow: $shadow-hard;
   border-radius: $radius-md;
   overflow: hidden;
-  background-color: $color-tire-black;
+  background-color: $color-hog-green-dark;
 
   @include e(container) {
     position: relative;
@@ -62,41 +62,37 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 48px;
-    height: 48px;
-    background-color: $color-pig-pink;
-    color: $color-tire-black;
-    border: 2px solid $color-tire-black;
+    width: 44px;
+    height: 44px;
+    background-color: $color-white;
+    color: $color-hog-green;
+    border: 3px solid $color-pig-pink;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 900;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
   }
 
   @include e(badge) {
     position: absolute;
-    top: 1.5rem;
+    top: 1.25rem;
     z-index: 4;
     font-family: $font-slab;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 0.35rem 0.85rem;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
     border-radius: $radius-sm;
-    border: 2px solid $color-tire-black;
+    background-color: rgba(15, 42, 31, 0.85);
+    color: $color-grass-clippings;
+    backdrop-filter: blur(4px);
 
-    &--before {
-      left: 1.5rem;
-      background-color: #f7a361;
-      color: $color-tire-black;
-    }
-
-    &--after {
-      right: 1.5rem;
-      background-color: $color-fresh-cut-dark;
-      color: $color-white;
-    }
+    // The modifiers differ only in which edge they pin to.
+    &--before { left: 1.25rem; }
+    &--after { right: 1.25rem; }
   }
 }
 
@@ -111,34 +107,65 @@
 .ba-badge-before { @extend .c-before-after__badge--before; }
 .ba-badge-after { @extend .c-before-after__badge--after; }
 
-// Stats Grid Component (BEM: .c-stats, .c-stat-card)
+// Stats Grid (BEM: .c-stats, .c-stat-card)
+// Mockup renders one white panel divided by hairlines, so the row is the card
+// and each cell just carries a divider.
 .c-stats,
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 1.5rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  background-color: $color-white;
+  border: 1px solid $color-line;
+  border-radius: $radius-md;
+  box-shadow: $shadow-hard;
+  overflow: hidden;
+
+  @include mq(md) { grid-template-columns: repeat(2, 1fr); }
+  @include mq(sm) { grid-template-columns: 1fr; }
 }
 
+// Dividers are drawn per cell, so the column count has to be explicit above —
+// with auto-fit the first cell of a wrapped row keeps a stray left border.
 .c-stat-card,
 .stat-card {
-  @include card-base;
   padding: 1.75rem 1.25rem;
+  border-left: 1px solid $color-line;
+
+  &:nth-child(4n + 1) { border-left: 0; }
+
+  @include mq(md) {
+    border-top: 1px solid $color-line;
+
+    &:nth-child(2n + 1) { border-left: 0; }
+    &:nth-child(-n + 2) { border-top: 0; }
+  }
+
+  @include mq(sm) {
+    border-left: 0;
+    border-top: 1px solid $color-line;
+
+    &:first-child { border-top: 0; }
+  }
 
   @include e(number) {
     font-family: $font-display;
-    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-size: clamp(2.25rem, 3.5vw, 3rem);
     color: $color-hog-green;
-    line-height: 0.9;
-    margin-bottom: 0.25rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
   }
 
   @include e(label) {
     font-family: $font-slab;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: $color-tire-black;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: $color-text-subtle;
     text-transform: uppercase;
   }
 }

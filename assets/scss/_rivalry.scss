@@ -7,7 +7,7 @@
 .c-rivalry,
 .rivalry-card {
   background-color: $color-white;
-  border: 3px solid $color-tire-black;
+  border: 1px solid $color-line;
   box-shadow: $shadow-hard-lg;
   border-radius: $radius-md;
   padding: clamp(2rem, 4vw, 3.5rem);
@@ -28,38 +28,43 @@
 
   @include e(side) {
     padding: 1.75rem;
-    border: 2px solid $color-tire-black;
-    border-radius: $radius-sm;
+    border: 1px solid $color-line;
+    border-radius: $radius-md;
+    font-size: 0.88rem;
+
+    .handwritten-sticker { margin-bottom: 0.75rem; }
 
     &--losing {
-      background-color: #fff4f0;
-      border-color: $color-pig-pink-deep;
+      background-color: #FFF5F8;
+      border-color: rgba(216, 69, 109, 0.35);
     }
 
     &--winning {
-      background-color: #f1f8f0;
-      border-color: $color-fresh-cut;
+      background-color: #F3F7F4;
+      border-color: rgba(22, 56, 42, 0.18);
     }
   }
 
   @include e(vs) {
     font-family: $font-display;
-    font-size: 2.5rem;
+    font-size: 1.15rem;
     color: $color-pig-pink;
-    background-color: $color-tire-black;
-    padding: 0.5rem 1rem;
+    background-color: $color-hog-green;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    border: 2px solid $color-tire-black;
 
     @include mq(md) {
-      text-align: center;
       margin: 0 auto;
     }
   }
 
   @include e(meter) {
     background-color: $color-grass-clippings;
-    border: 2px solid $color-tire-black;
+    border: 1px solid $color-line;
     padding: 2rem;
     border-radius: $radius-sm;
     margin-bottom: 2rem;
@@ -69,17 +74,19 @@
     display: flex;
     justify-content: space-between;
     font-family: $font-slab;
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     margin-bottom: 1rem;
   }
 
   @include e(meter-track) {
     width: 100%;
-    height: 24px;
-    background-color: #e2dac9;
-    border: 2px solid $color-tire-black;
-    border-radius: 12px;
+    height: 10px;
+    background-color: $color-grass-clippings-alt;
+    border: 1px solid $color-line;
+    border-radius: 999px;
     position: relative;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -88,7 +95,7 @@
   @include e(meter-fill) {
     height: 100%;
     width: 78%;
-    background: linear-gradient(90deg, #d8456d 0%, $color-fresh-cut 100%);
+    background: linear-gradient(90deg, $color-pig-pink-deep 0%, $color-fresh-cut 100%);
     transition: width 0.3s ease;
   }
 
@@ -122,14 +129,16 @@
 
   @include e(filter-btn) {
     font-family: $font-slab;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 0.5rem 1.25rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.15rem;
     background-color: $color-white;
-    border: 2px solid $color-tire-black;
-    border-radius: $radius-sm;
+    color: $color-hog-green;
+    border: 1px solid $color-line;
+    border-radius: 999px;
     cursor: pointer;
-    box-shadow: 2px 2px 0px $color-tire-black;
     transition: all $transition-fast;
 
     &:hover,
@@ -137,15 +146,14 @@
     &.active {
       background-color: $color-hog-green;
       color: $color-grass-clippings;
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0px $color-tire-black;
+      border-color: $color-hog-green;
     }
   }
 
   @include e(grid) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
   }
 }
 
@@ -179,16 +187,16 @@
 
   @include e(badge) {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 0.9rem;
+    right: 0.9rem;
     background-color: $color-pig-pink;
     color: $color-tire-black;
-    font-family: $font-display;
-    font-size: 1.2rem;
-    padding: 0.25rem 0.75rem;
-    border: 2px solid $color-tire-black;
-    box-shadow: 2px 2px 0px $color-tire-black;
-    transform: rotate(-3deg);
+    font-family: $font-slab;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    padding: 0.35rem 0.7rem;
+    border-radius: $radius-sm;
   }
 
   @include e(content) {
@@ -197,23 +205,25 @@
 
   @include e(category) {
     font-family: $font-slab;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: $color-fresh-cut-dark;
+    font-size: 0.64rem;
+    font-weight: 800;
+    color: $color-pig-pink-deep;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.5rem;
     display: block;
   }
 
   @include e(title) {
-    font-size: 1.65rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.6rem;
   }
 
   @include e(desc) {
-    font-size: 0.9rem;
-    color: #333333;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: $color-text-muted;
     margin-bottom: 1rem;
   }
 }
@@ -233,10 +243,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
-  background-color: $color-tire-black;
-  border: 3px solid $color-tire-black;
-  border-radius: $radius-md;
-  padding: clamp(2rem, 5vw, 4rem);
+  background-color: $color-hog-green;
+  border: 1px solid $color-hog-green;
+  border-radius: $radius-lg;
+  padding: clamp(2rem, 5vw, 3.5rem);
   box-shadow: $shadow-hard-green;
 
   @include mq(lg) {
@@ -245,8 +255,8 @@
 
   @include e(media) {
     img {
-      border: 2px solid rgba(255,255,255,0.15);
-      border-radius: $radius-sm;
+      border: 1px solid $color-line-dark;
+      border-radius: $radius-md;
       width: 100%;
     }
   }
@@ -259,20 +269,24 @@
   }
 
   @include e(spec-item) {
-    background-color: $color-tire-black-surface;
-    border-left: 3px solid $color-fresh-cut;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid $color-line-dark;
+    border-left: 2px solid $color-pig-pink;
+    border-radius: 0 $radius-sm $radius-sm 0;
     padding: 0.75rem 1rem;
 
     .spec-title {
       font-family: $font-slab;
-      font-size: 0.75rem;
-      color: #a0a0a0;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: $color-text-on-dark-muted;
       text-transform: uppercase;
     }
 
     .spec-value {
       font-family: $font-display;
-      font-size: 1.65rem;
+      font-size: 1.15rem;
       color: $color-grass-clippings;
     }
   }

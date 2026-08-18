@@ -6,8 +6,8 @@
 .c-crew {
   @include e(grid) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
   }
 }
 
@@ -17,32 +17,31 @@
 .c-trading-card,
 .trading-card {
   background-color: $color-white;
-  border: 3px solid $color-tire-black;
-  box-shadow: 6px 6px 0px $color-tire-black;
-  border-radius: $radius-sm;
-  padding: 1.25rem;
+  border: 1px solid $color-line;
+  box-shadow: $shadow-hard;
+  border-radius: $radius-md;
+  padding: 0;
   position: relative;
-  transition: transform $transition-bounce, box-shadow $transition-fast;
+  overflow: hidden;
+  transition: transform $transition-normal, box-shadow $transition-normal;
   color: $color-tire-black !important;
 
   &:hover {
-    transform: translateY(-8px) rotate(0.5deg);
-    box-shadow: 10px 10px 0px $color-pig-pink;
+    transform: translateY(-3px);
+    box-shadow: $shadow-hard-lg;
   }
 
   @include e(frame) {
-    border: 2px solid $color-tire-black;
     background-color: $color-white;
-    padding: 1.25rem;
-    border-radius: 2px;
+    padding: 0 0 1.25rem;
   }
 
   @include e(avatar) {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     background-color: $color-grass-clippings-alt;
-    border: 2px solid $color-tire-black;
-    margin-bottom: 1.25rem;
+    border-bottom: 1px solid $color-line;
+    margin-bottom: 1.1rem;
     overflow: hidden;
 
     img {
@@ -53,43 +52,44 @@
   }
 
   @include e(name) {
-    font-size: 2.2rem;
-    line-height: 0.95;
-    margin-bottom: 0.35rem;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    margin: 0 1.25rem 0.25rem;
     color: $color-hog-green !important;
     text-shadow: none;
   }
 
   @include e(role) {
     font-family: $font-slab;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: $color-dirt-brown-dark !important;
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: $color-pig-pink-deep !important;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 1.25rem;
+    letter-spacing: 0.13em;
+    margin: 0 1.25rem 1rem;
     display: block;
   }
 
   @include e(table) {
-    width: 100%;
-    font-size: 0.88rem;
+    width: calc(100% - 2.5rem);
+    font-size: 0.76rem;
     border-collapse: collapse;
-    margin-bottom: 1.25rem;
+    margin: 0 1.25rem 1rem;
 
     td {
-      padding: 0.45rem 0;
-      border-bottom: 1px dotted #ccc;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid $color-line;
       color: $color-tire-black !important;
 
       &:first-child {
-        color: #333333 !important;
-        font-weight: 600;
+        color: $color-text-subtle !important;
+        font-weight: 500;
       }
 
       &:last-child {
         text-align: right;
-        font-weight: 800;
+        font-weight: 700;
         color: $color-hog-green !important;
       }
     }
@@ -97,13 +97,14 @@
 
   @include e(quote) {
     background-color: $color-grass-clippings;
-    border: 1px solid #e0d8c8;
-    border-left: 4px solid $color-pig-pink-deep;
-    padding: 0.75rem 1rem;
-    font-size: 0.88rem;
+    border-left: 2px solid $color-pig-pink;
+    padding: 0.7rem 0.9rem;
+    margin: 0 1.25rem;
+    border-radius: 0 $radius-sm $radius-sm 0;
+    font-size: 0.78rem;
     font-style: italic;
-    color: $color-tire-black !important;
-    line-height: 1.45;
+    color: $color-text-body !important;
+    line-height: 1.5;
   }
 }
 

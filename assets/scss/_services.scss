@@ -6,8 +6,11 @@
 .c-services {
   @include e(grid) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    @include mq(lg) { grid-template-columns: repeat(2, 1fr); }
+    @include mq(md) { grid-template-columns: 1fr; }
   }
 }
 
@@ -17,7 +20,7 @@
 .c-service-card,
 .service-card {
   @include card-base;
-  padding: 2.25rem;
+  padding: 1.85rem;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -63,75 +66,82 @@
     }
 
     &:hover {
-      box-shadow: 8px 8px 0px $color-pig-pink;
+      box-shadow: $shadow-hard-pink;
     }
   }
 
   @include e(header) {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 1.25rem;
   }
 
   @include e(number) {
-    font-family: $font-display;
-    font-size: 2.5rem;
-    color: rgba(30, 61, 47, 0.2);
-    line-height: 0.8;
+    font-family: $font-slab;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: $color-text-faint;
+    line-height: 1;
+    order: 2;
   }
 
+  // Mockup: solid dark-green disc, icon knocked out in cream.
   @include e(icon) {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $color-grass-clippings-alt;
-    border: 2px solid $color-tire-black;
-    border-radius: $radius-sm;
-    font-size: 1.5rem;
+    background-color: $color-hog-green;
+    color: $color-grass-clippings;
+    border-radius: 50%;
+    font-size: 1.15rem;
+    order: 1;
   }
 
   @include e(title) {
-    font-size: 2rem;
+    font-size: 0.98rem;
+    letter-spacing: 0.06em;
     margin-bottom: 0.5rem;
-    color: $color-tire-black;
+    color: $color-hog-green;
   }
 
   @include e(tagline) {
     font-family: $font-slab;
-    font-size: 0.95rem;
-    color: #3b2818;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: $color-pig-pink-deep;
+    margin-bottom: 0.75rem;
     font-weight: 700;
   }
 
   @include e(desc) {
-    font-size: 0.98rem;
-    color: #222222;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin-bottom: 1.25rem;
     flex-grow: 1;
   }
 
   @include e(features) {
     list-style: none;
-    margin-bottom: 2rem;
-    border-top: 1px dashed #d1c8b8;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid $color-line;
     padding-top: 1rem;
 
     li {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #222222;
-      margin-bottom: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: $color-text-muted;
+      margin-bottom: 0.45rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
 
       &::before {
         content: '✓';
-        color: $color-fresh-cut-dark;
+        color: $color-pig-pink-deep;
         font-weight: 900;
       }
     }
