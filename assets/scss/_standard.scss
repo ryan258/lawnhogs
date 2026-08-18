@@ -55,10 +55,19 @@
 .c-audit,
 .checklist-interactive {
   background-color: $color-hog-green-dark;
+  color: $color-grass-clippings;
   border: 2px solid $color-tire-black;
   box-shadow: $shadow-hard-pink;
   border-radius: $radius-md;
   padding: 2.5rem;
+
+  h3, .checklist-title {
+    color: $color-white !important;
+  }
+
+  p {
+    color: #c0d4cb !important;
+  }
 
   @include e(header) {
     display: flex;
@@ -79,10 +88,11 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255,255,255,0.08);
+    color: $color-grass-clippings !important;
     padding: 0.75rem 1rem;
     border-radius: $radius-sm;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
   }
 

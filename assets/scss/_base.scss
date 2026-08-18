@@ -1,7 +1,34 @@
-// ==========================================================================
-// LAWN HOGS — BASE & RESET
-// ==========================================================================
+:root {
+  --hog-green: #{$color-hog-green};
+  --hog-green-dark: #{$color-hog-green-dark};
+  --hog-green-light: #{$color-hog-green-light};
+  --fresh-cut: #{$color-fresh-cut};
+  --fresh-cut-dark: #{$color-fresh-cut-dark};
+  --fresh-cut-light: #{$color-fresh-cut-light};
+  --pig-pink: #{$color-pig-pink};
+  --pig-pink-hover: #{$color-pig-pink-hover};
+  --pig-pink-deep: #{$color-pig-pink-deep};
+  --dirt-brown: #{$color-dirt-brown};
+  --dirt-brown-dark: #{$color-dirt-brown-dark};
+  --grass-clippings: #{$color-grass-clippings};
+  --grass-clippings-alt: #{$color-grass-clippings-alt};
+  --tire-black: #{$color-tire-black};
+  --tire-black-surface: #{$color-tire-black-surface};
+  --white: #{$color-white};
 
+  --font-display: #{$font-display};
+  --font-slab: #{$font-slab};
+  --font-hand: #{$font-hand};
+  --font-body: #{$font-body};
+
+  --shadow-hard: #{$shadow-hard};
+  --shadow-hard-pink: #{$shadow-hard-pink};
+  --shadow-hard-green: #{$shadow-hard-green};
+  --shadow-hard-lg: #{$shadow-hard-lg};
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
