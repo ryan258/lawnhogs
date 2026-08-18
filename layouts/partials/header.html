@@ -1,0 +1,99 @@
+<header class="site-header" id="siteHeader">
+  <!-- Top Utility Ticker Bar -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-inner">
+      <span class="announcement-pill">HOTLINE</span>
+      <span class="announcement-text">GRASS OUT OF LINE? CALL <strong>1-800-MOW-HOGS</strong> • SECTOR 4 COVERAGE ACTIVE</span>
+      <a href="/quote/" class="announcement-link">EMERGENCY CUT DISPATCH &rarr;</a>
+    </div>
+  </div>
+
+  <div class="header-main">
+    <div class="container header-container">
+      <a href="/" class="brand-logo" aria-label="Lawn Hogs Homepage">
+        <div class="logo-mark">
+          <svg class="hog-logo-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="#1E3D2F" stroke="#6BA368" stroke-width="4"/>
+            <!-- Stylized Pig Snout & Shades -->
+            <ellipse cx="50" cy="58" rx="22" ry="16" fill="#FF9DB5" stroke="#111111" stroke-width="3"/>
+            <circle cx="42" cy="58" r="4.5" fill="#111111"/>
+            <circle cx="58" cy="58" r="4.5" fill="#111111"/>
+            <!-- Sunglasses -->
+            <polygon points="26,38 48,38 45,49 29,49" fill="#111111"/>
+            <polygon points="52,38 74,38 71,49 55,49" fill="#111111"/>
+            <line x1="47" y1="41" x2="53" y2="41" stroke="#111111" stroke-width="3"/>
+            <!-- Tusks -->
+            <path d="M 28 58 Q 23 48 30 46" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 72 58 Q 77 48 70 46" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Grass stem in mouth -->
+            <path d="M 52 66 Q 78 72 86 64" stroke="#6BA368" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <circle cx="86" cy="64" r="2.5" fill="#6BA368"/>
+          </svg>
+        </div>
+        <div class="brand-text-lockup">
+          <span class="brand-title">LAWN HOGS</span>
+          <span class="brand-sub">PREMIUM LUGGED OUTDOORS&trade;</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="/services/" class="nav-link {{ if eq .Section "services" }}active{{ end }}">Services</a></li>
+          <li><a href="/hog-standard/" class="nav-link {{ if eq .Section "hog-standard" }}active{{ end }}">The Hog Standard</a></li>
+          <li><a href="/work/" class="nav-link {{ if eq .Section "work" }}active{{ end }}">The Hog Files</a></li>
+          <li><a href="/crew/" class="nav-link {{ if eq .Section "crew" }}active{{ end }}">Meet the Hogs</a></li>
+          <li><a href="/blog/" class="nav-link {{ if eq .Section "blog" }}active{{ end }}">Hog Talk</a></li>
+          <li><a href="/merch/" class="nav-link {{ if eq .Section "merch" }}active{{ end }}">Supply Co.</a></li>
+          <li><a href="/faq/" class="nav-link {{ if eq .Section "faq" }}active{{ end }}">FAQ</a></li>
+          <li><a href="/about/" class="nav-link {{ if eq .Section "about" }}active{{ end }}">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA action -->
+      <div class="header-actions">
+        <div class="cta-wrapper">
+          <a href="/quote/" class="btn btn-primary btn-header">
+            <span>GET HOGGED</span>
+            <span class="btn-arrow">&rarr;</span>
+          </a>
+          <span class="handwritten-sticker header-sticker">neighbor envy guaranteed</span>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileNav" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <div class="mobile-drawer-header">
+        <span class="brand-title">LAWN HOGS</span>
+        <button class="mobile-close" id="mobileCloseBtn" aria-label="Close navigation">&times;</button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="/services/" class="mobile-nav-link">Services</a></li>
+        <li><a href="/hog-standard/" class="mobile-nav-link">The Hog Standard</a></li>
+        <li><a href="/work/" class="mobile-nav-link">The Hog Files (Our Work)</a></li>
+        <li><a href="/crew/" class="mobile-nav-link">Meet the Hogs</a></li>
+        <li><a href="/blog/" class="mobile-nav-link">Hog Talk (Editorial)</a></li>
+        <li><a href="/merch/" class="mobile-nav-link">Supply Co. (Merch)</a></li>
+        <li><a href="/faq/" class="mobile-nav-link">FAQ</a></li>
+        <li><a href="/about/" class="mobile-nav-link">About Us</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="/quote/" class="btn btn-primary btn-block">GET HOGGED NOW &rarr;</a>
+        <div class="mobile-hotline">
+          <span>Direct Dispatch Hotline:</span>
+          <strong>1-800-MOW-HOGS</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

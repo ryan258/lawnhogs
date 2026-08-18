@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem; text-align: center;">
+  <div class="container">
+    <div class="hero-tagline-badge" style="margin-bottom: 1rem;">
+      <span>OFFICIAL OUTFITTER & HARDWARE</span>
+    </div>
+    <h1 style="font-size: clamp(3.5rem, 8vw, 6.5rem); margin-bottom: 0.5rem;">
+      LAWN HOGS SUPPLY CO.
+    </h1>
+    <p class="handwritten" style="font-size: 1.8rem; color: var(--pig-pink); margin-bottom: 1.5rem;">
+      *look like you dominate lawns even if you just hire us.*
+    </p>
+    <p class="section-subtitle centered" style="color: #d1e2da;">
+      Heavyweight cotton, embroidered patches, rugged stainless steel, and neighborhood intimidation accessories.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="merch-grid">
+      {{ range .Pages }}
+      <article class="merch-card">
+        <div class="merch-img-box">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}">
+          {{ if .Params.badge }}
+          <span class="handwritten-sticker" style="position: absolute; top: 1rem; left: 1rem;">{{ .Params.badge }}</span>
+          {{ end }}
+        </div>
+        <div class="merch-body">
+          <span style="font-family: var(--font-slab); font-size: 0.75rem; color: var(--fresh-cut); font-weight: 700; text-transform: uppercase;">{{ .Params.category }}</span>
+          <h2 style="font-size: 1.75rem; margin-bottom: 0.25rem;">{{ .Title }}</h2>
+          <div class="merch-price">{{ .Params.price }}</div>
+          <p style="font-size: 0.9rem; color: #555; margin-bottom: 1.25rem; flex-grow: 1;">{{ .Params.description }}</p>
+          <button class="btn btn-secondary btn-block btn-add-merch" data-item="{{ .Title }}">
+            ADD TO OUTFITTER BAG &rarr;
+          </button>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

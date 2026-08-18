@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem;">
+  <div class="container container-narrow text-center">
+    <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1rem; color: var(--grass-clippings);">
+      {{ .Title }}
+    </h1>
+    {{ with .Params.description }}
+    <p class="section-subtitle centered" style="color: #d1e2da;">{{ . }}</p>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      {{ range .Pages }}
+      <div style="background-color: var(--white); border: 2px solid var(--tire-black); box-shadow: var(--shadow-hard); padding: 1.75rem; border-radius: var(--radius-sm);">
+        <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ with .Summary }}<p style="color: #555; margin-bottom: 1rem;">{{ . }}</p>{{ end }}
+        <a href="{{ .Permalink }}" class="nav-link">VIEW PAGE &rarr;</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

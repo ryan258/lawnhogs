@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem;">
+  <div class="container container-narrow">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="/blog/" style="color: var(--pig-pink); font-family: var(--font-slab); font-size: 0.85rem; font-weight: 700;">
+        &larr; BACK TO HOG TALK
+      </a>
+    </div>
+    <div class="hero-tagline-badge" style="margin-bottom: 1rem;">
+      <span>{{ .Params.category }} • {{ .ReadingTime }} MIN READ</span>
+    </div>
+    <h1 style="font-size: clamp(2.75rem, 6vw, 4.5rem); margin-bottom: 1rem; color: var(--grass-clippings); line-height: 1;">
+      {{ .Title }}
+    </h1>
+    <div style="display: flex; gap: 1rem; align-items: center; color: #c0d4cb; font-family: var(--font-slab); font-size: 0.85rem;">
+      <span>BY {{ .Params.author }}</span>
+      <span>&bull;</span>
+      <span>PUBLISHED FROM THE FIELD</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <article style="background-color: var(--white); border: 3px solid var(--tire-black); box-shadow: var(--shadow-hard); padding: clamp(2rem, 5vw, 4rem); border-radius: var(--radius-md);">
+      <div style="font-size: 1.15rem; line-height: 1.8; color: #222;">
+        {{ .Content }}
+      </div>
+
+      <!-- Author Box -->
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--tire-black); display: flex; gap: 1.5rem; align-items: center;">
+        <div style="width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--tire-black); overflow: hidden; flex-shrink: 0;">
+          <img src="/images/mascot-johnny.webp" alt="Johnny Hogger">
+        </div>
+        <div>
+          <h4 style="font-size: 1.4rem; margin-bottom: 0.25rem;">{{ .Params.author }}</h4>
+          <p style="font-size: 0.9rem; color: #555; margin-bottom: 0;">
+            {{ with .Params.authorBio }}{{ . }}{{ else }}Senior Field Strategist at Lawn Hogs. Has never surrendered a single blade of grass to an encroaching dandelion.{{ end }}
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+{{ end }}

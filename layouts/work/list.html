@@ -1,0 +1,49 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem; text-align: center;">
+  <div class="container">
+    <div class="hero-tagline-badge" style="margin-bottom: 1rem;">
+      <span>CLASSIFIED DEPLOYMENT ARCHIVES</span>
+    </div>
+    <h1 style="font-size: clamp(3.5rem, 8vw, 6.5rem); margin-bottom: 0.5rem;">
+      THE HOG FILES
+    </h1>
+    <p class="handwritten" style="font-size: 1.8rem; color: var(--pig-pink); margin-bottom: 1.5rem;">
+      *photographic proof of suburban submission.*
+    </p>
+    <p class="section-subtitle centered" style="color: #d1e2da;">
+      Browse our completed assignments. Every single square foot shown here was brought into line by our heavy commercial fleet.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="work-filters">
+      <button class="filter-btn active" data-filter="all">ALL DEPLOYMENTS</button>
+      <button class="filter-btn" data-filter="stripes">DIAMOND STRIPING</button>
+      <button class="filter-btn" data-filter="edging">TRENCH EDGING</button>
+      <button class="filter-btn" data-filter="overhaul">TOTAL OVERHAULS</button>
+    </div>
+
+    <div class="work-grid">
+      {{ range .Pages }}
+      <article class="work-card" data-category="{{ .Params.category }}">
+        <div class="work-img-box">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="work-img">
+          <span class="work-badge-hogged">HOGGED ✓</span>
+        </div>
+        <div class="work-content">
+          <span class="work-category-tag">{{ .Params.categoryLabel }} &bull; SECTOR {{ .Params.sector }}</span>
+          <h2 class="work-title" style="font-size: 1.8rem;"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <p class="work-desc">{{ .Params.summary }}</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #d1c8b8; padding-top: 0.75rem; margin-top: 1rem;">
+            <span style="font-family: var(--font-slab); font-size: 0.8rem; font-weight: 700; color: var(--dirt-brown);">ACREAGE: {{ .Params.acreage }}</span>
+            <a href="{{ .Permalink }}" class="nav-link">CASE REPORT &rarr;</a>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

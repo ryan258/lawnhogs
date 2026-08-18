@@ -1,0 +1,47 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem; text-align: center;">
+  <div class="container">
+    <div class="hero-tagline-badge" style="margin-bottom: 1rem;">
+      <span>CERTIFIED TURF DOMINANCE SQUADRON</span>
+    </div>
+    <h1 style="font-size: clamp(3.5rem, 8vw, 6.5rem); margin-bottom: 0.5rem;">
+      MEET THE HOGS
+    </h1>
+    <p class="handwritten" style="font-size: 1.8rem; color: var(--pig-pink); margin-bottom: 1.5rem;">
+      *the crew Steve wishes he hired.*
+    </p>
+    <p class="section-subtitle centered" style="color: #d1e2da;">
+      Every operator on our roster has undergone intense stripe alignment drills, commercial blade balance tests, and anti-dandelion psych evaluations.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="crew-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      {{ range .Pages }}
+      <div class="trading-card">
+        <div class="card-frame">
+          <div class="card-avatar-box">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}">
+          </div>
+          <div class="stamp-badge stamp-hot" style="margin-bottom: 0.5rem; font-size: 0.85rem;">{{ .Params.cardBadge }}</div>
+          <h2 class="card-name" style="font-size: 2.2rem;">{{ .Title }}</h2>
+          <span class="card-role">{{ .Params.role }}</span>
+          <table class="card-stats-table">
+            <tr><td>Turf Swagger:</td><td>{{ .Params.swagger }}</td></tr>
+            <tr><td>Grass Mercy:</td><td>{{ .Params.mercy }}</td></tr>
+            <tr><td>Signature Move:</td><td>{{ .Params.signature }}</td></tr>
+            <tr><td>Experience:</td><td>{{ .Params.experience }}</td></tr>
+            <tr><td>Favorite Cut:</td><td>{{ .Params.favoriteCut }}</td></tr>
+          </table>
+          <div class="card-quote-box">
+            "{{ .Params.quote }}"
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

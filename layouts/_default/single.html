@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem;">
+  <div class="container container-narrow">
+    <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1rem; color: var(--grass-clippings);">
+      {{ .Title }}
+    </h1>
+    {{ with .Params.description }}
+    <p class="section-subtitle" style="color: #d1e2da;">{{ . }}</p>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div style="background-color: var(--white); border: 2px solid var(--tire-black); box-shadow: var(--shadow-hard); padding: 2.5rem; border-radius: var(--radius-sm);">
+      <div style="font-size: 1.1rem; line-height: 1.8;">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,42 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem; text-align: center;">
+  <div class="container container-narrow">
+    <div class="hero-tagline-badge" style="margin-bottom: 1rem;">
+      <span>SUBURBAN INQUIRIES</span>
+    </div>
+    <h1 style="font-size: clamp(3.5rem, 8vw, 6.5rem); margin-bottom: 0.5rem;">
+      FREQUENTLY OINKED QUESTIONS
+    </h1>
+    <p class="handwritten" style="font-size: 1.8rem; color: var(--pig-pink); margin-bottom: 1.5rem;">
+      *answers provided with brutal honesty.*
+    </p>
+    <p class="section-subtitle centered" style="color: #d1e2da;">
+      Everything you need to know about our dispatch protocols, billing, rainy day weather physics, and gate security.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container-narrow">
+    <div class="faq-list">
+      {{ range .Pages }}
+      <details class="faq-item">
+        <summary class="faq-summary">{{ .Title }}</summary>
+        <div class="faq-content">
+          {{ .Content }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+
+    <div style="background-color: var(--grass-clippings-alt); border: 2px solid var(--tire-black); padding: 2.5rem; border-radius: var(--radius-md); text-align: center; margin-top: 4rem;">
+      <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">STILL HAVE AN UNRESOLVED GRASS DILEMMA?</h3>
+      <p style="color: #444; margin-bottom: 1.5rem;">Our dispatch radio operates around the clock. Don't let your lawn suffer in silence.</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="/quote/" class="btn btn-primary">DISPATCH A CREW &rarr;</a>
+        <a href="tel:1-800-669-4647" class="btn btn-secondary">CALL 1-800-MOW-HOGS</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

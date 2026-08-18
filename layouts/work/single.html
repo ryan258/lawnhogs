@@ -1,0 +1,59 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 4rem;">
+  <div class="container">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="/work/" style="color: var(--pig-pink); font-family: var(--font-slab); font-size: 0.85rem; font-weight: 700;">
+        &larr; BACK TO THE HOG FILES
+      </a>
+    </div>
+    <div class="hero-tagline-badge" style="margin-bottom: 1rem;">
+      <span>CASE FILE #{{ .Params.fileNumber }} • SECTOR {{ .Params.sector }}</span>
+    </div>
+    <h1 style="font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: 1rem; color: var(--grass-clippings);">
+      {{ .Title }}
+    </h1>
+    <p class="section-subtitle" style="color: #d1e2da; max-width: 780px;">
+      {{ .Params.summary }}
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3.5rem;">
+      <div>
+        <div style="border: 3px solid var(--tire-black); box-shadow: var(--shadow-hard); border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 2.5rem;">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" style="width: 100%;">
+        </div>
+
+        <div style="background-color: var(--white); border: 2px solid var(--tire-black); box-shadow: var(--shadow-hard); padding: 2.5rem; border-radius: var(--radius-sm); margin-bottom: 2.5rem;">
+          <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--fresh-cut); padding-bottom: 0.5rem;">
+            MISSION DEBRIEF
+          </h2>
+          <div style="font-size: 1.1rem; line-height: 1.7; color: #222;">
+            {{ .Content }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Case Specs -->
+      <div>
+        <div style="background-color: var(--grass-clippings-alt); border: 2px solid var(--tire-black); box-shadow: var(--shadow-hard); padding: 2rem; border-radius: var(--radius-sm); position: sticky; top: 100px;">
+          <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--tire-black); padding-bottom: 0.5rem;">
+            DEPLOYMENT SPECS
+          </h3>
+          <table style="width: 100%; font-size: 0.95rem; border-collapse: collapse; margin-bottom: 2rem;">
+            <tr style="border-bottom: 1px dotted #aaa;"><td style="padding: 0.5rem 0;">Property Scale:</td><td style="text-align: right; font-weight: 700;">{{ .Params.acreage }}</td></tr>
+            <tr style="border-bottom: 1px dotted #aaa;"><td style="padding: 0.5rem 0;">Stripe Pattern:</td><td style="text-align: right; font-weight: 700;">{{ .Params.pattern }}</td></tr>
+            <tr style="border-bottom: 1px dotted #aaa;"><td style="padding: 0.5rem 0;">Primary Rig:</td><td style="text-align: right; font-weight: 700;">{{ .Params.equipment }}</td></tr>
+            <tr style="border-bottom: 1px dotted #aaa;"><td style="padding: 0.5rem 0;">Lead Operator:</td><td style="text-align: right; font-weight: 700;">{{ .Params.operator }}</td></tr>
+            <tr style="border-bottom: 1px dotted #aaa;"><td style="padding: 0.5rem 0;">Neighbor Reaction:</td><td style="text-align: right; font-weight: 700; color: #d8456d;">{{ .Params.neighborReaction }}</td></tr>
+          </table>
+
+          <a href="/quote/" class="btn btn-primary btn-block">REQUEST SIMILAR DEPLOYMENT &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,199 @@
+{{ define "main" }}
+<section class="section section-dark" style="padding-top: 5rem; padding-bottom: 3.5rem; text-align: center;">
+  <div class="container container-narrow">
+    <div class="hero-tagline-badge" style="margin-bottom: 1rem;">
+      <span>RAPID DISPATCH ESTIMATOR</span>
+    </div>
+    <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); margin-bottom: 0.5rem;">
+      LET'S HOG YOUR LAWN.
+    </h1>
+    <p class="handwritten" style="font-size: 1.8rem; color: var(--pig-pink); margin-bottom: 1rem;">
+      *your grass has been warned.*
+    </p>
+    <p class="section-subtitle centered" style="color: #d1e2da;">
+      3 quick steps to calculate your turf dominance package and schedule the heavy artillery.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="quote-wizard-card">
+      <!-- Steps Navigation Indicator -->
+      <div class="wizard-steps-indicator">
+        <div class="wizard-step-node active" id="stepNode1">
+          <div class="step-circle">1</div>
+          <span>THE TURF</span>
+        </div>
+        <div class="wizard-step-node" id="stepNode2">
+          <div class="step-circle">2</div>
+          <span>THE PACKAGE</span>
+        </div>
+        <div class="wizard-step-node" id="stepNode3">
+          <div class="step-circle">3</div>
+          <span>THE DISPATCH</span>
+        </div>
+      </div>
+
+      <form id="quoteWizardForm">
+        <!-- STEP 1: Address & Property Size -->
+        <div id="wizardStep1">
+          <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">STEP 1: WHERE'S THE GRASS?</h2>
+          <p style="color: #666; margin-bottom: 2rem;">Tell us where to drop the ramp and how much acreage we are liberating.</p>
+
+          <div class="form-group">
+            <label for="quoteAddress" class="form-label">PROPERTY ADDRESS *</label>
+            <input type="text" id="quoteAddress" class="form-control" placeholder="1242 Whispering Pines Dr, Sector 4" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">ESTIMATED LOT SCALE</label>
+            <div class="service-selector-grid">
+              <label class="service-check-tile">
+                <input type="radio" name="lotSize" value="quarter" checked>
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.3rem; display: block;">SUBURBAN STANDARD</strong>
+                  <span style="font-size: 0.85rem; color: #666;">Up to 0.25 Acre • $65 Base</span>
+                </div>
+              </label>
+              <label class="service-check-tile">
+                <input type="radio" name="lotSize" value="half">
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.3rem; display: block;">HALF-ACRE RIVALRY</strong>
+                  <span style="font-size: 0.85rem; color: #666;">0.25 - 0.5 Acre • $95 Base</span>
+                </div>
+              </label>
+              <label class="service-check-tile">
+                <input type="radio" name="lotSize" value="acre">
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.3rem; display: block;">FULL ACRE MONOPOLY</strong>
+                  <span style="font-size: 0.85rem; color: #666;">0.5 - 1.0 Acre • $160 Base</span>
+                </div>
+              </label>
+              <label class="service-check-tile">
+                <input type="radio" name="lotSize" value="estate">
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.3rem; display: block;">ESTATE COMPOUND</strong>
+                  <span style="font-size: 0.85rem; color: #666;">1.0+ Acres • $280 Base</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+            <button type="button" class="btn btn-primary btn-lg" id="btnNext1">
+              CHOOSE SERVICES &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Service Selection & Add-ons -->
+        <div id="wizardStep2" style="display: none;">
+          <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">STEP 2: WHAT'S IT GOTTEN ITSELF INTO?</h2>
+          <p style="color: #666; margin-bottom: 2rem;">Select the heavy artillery add-ons to customize your lawn's total transformation.</p>
+
+          <div class="form-group">
+            <label class="form-label">TACTICAL TURF ADD-ONS</label>
+            <div class="service-selector-grid">
+              <label class="service-check-tile">
+                <input type="checkbox" name="quoteAddon" data-price="25" checked>
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.2rem; display: block;">90° TRENCH EDGING</strong>
+                  <span style="font-size: 0.85rem; color: #666;">+$25 • Razor curbside grooves</span>
+                </div>
+              </label>
+              <label class="service-check-tile">
+                <input type="checkbox" name="quoteAddon" data-price="35" checked>
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.2rem; display: block;">DIAMOND STRIPING</strong>
+                  <span style="font-size: 0.85rem; color: #666;">+$35 • Dual opposing pass pattern</span>
+                </div>
+              </label>
+              <label class="service-check-tile">
+                <input type="checkbox" name="quoteAddon" data-price="45">
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.2rem; display: block;">DANDELION ERADICATION</strong>
+                  <span style="font-size: 0.85rem; color: #666;">+$45 • Zero mercy protocol</span>
+                </div>
+              </label>
+              <label class="service-check-tile">
+                <input type="checkbox" name="quoteAddon" data-price="50">
+                <div class="tile-content">
+                  <strong style="font-family: var(--font-display); font-size: 1.2rem; display: block;">CORE PLUG AERATION</strong>
+                  <span style="font-size: 0.85rem; color: #666;">+$50 • Deep soil de-compaction</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Estimated Total Box -->
+          <div style="background-color: var(--grass-clippings-alt); border: 2px solid var(--tire-black); padding: 1.5rem; border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <div>
+              <span style="font-family: var(--font-slab); font-size: 0.85rem; color: var(--dirt-brown); font-weight: 700; display: block;">ESTIMATED PER-VISIT TOTAL:</span>
+              <span style="font-size: 0.8rem; color: #666;">Includes equipment prep, crew dispatch, and full cleanup</span>
+            </div>
+            <div style="font-family: var(--font-display); font-size: 3rem; color: var(--hog-green);" id="quoteEstimatedTotal">$125</div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <button type="button" class="btn btn-secondary" id="btnPrev2">&larr; BACK</button>
+            <button type="button" class="btn btn-primary btn-lg" id="btnNext2">FINAL DISPATCH INFO &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Contact & Schedule -->
+        <div id="wizardStep3" style="display: none;">
+          <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">STEP 3: HOW DO WE REACH YOU?</h2>
+          <p style="color: #666; margin-bottom: 2rem;">Enter your contact coordinates so Johnny Hogger can confirm your deployment time.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label for="quoteName" class="form-label">YOUR FULL NAME *</label>
+              <input type="text" id="quoteName" class="form-control" placeholder="Hank Dominance" required>
+            </div>
+            <div class="form-group">
+              <label for="quotePhone" class="form-label">PHONE NUMBER (FOR DISPATCH SMS) *</label>
+              <input type="tel" id="quotePhone" class="form-control" placeholder="(555) 867-5309" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="quoteEmail" class="form-label">EMAIL ADDRESS *</label>
+            <input type="email" id="quoteEmail" class="form-control" placeholder="hank@suburbanhero.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="quoteNotes" class="form-label">SPECIAL INSTRUCTIONS / NEIGHBOR INTEL (OPTIONAL)</label>
+            <textarea id="quoteNotes" class="form-control" rows="3" placeholder="Steve across the street cuts at 3 inches. I want to cut at 2.25 inches with maximum contrast diamond lines. Also watch out for the garden sprinkler on the left."></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+            <button type="button" class="btn btn-secondary" id="btnPrev3">&larr; BACK</button>
+            <button type="submit" class="btn btn-pink btn-lg">
+              <span>SEND IN THE HOGS</span>
+              <span class="btn-arrow">&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SUCCESS CONFIRMATION MODAL STATE -->
+        <div id="wizardSuccess" style="display: none; text-align: center; padding: 2rem 0;">
+          <div style="width: 90px; height: 90px; margin: 0 auto 1.5rem auto; border-radius: 50%; background-color: var(--fresh-cut); color: white; display: flex; align-items: center; justify-content: center; font-size: 3rem; border: 3px solid var(--tire-black); box-shadow: 4px 4px 0px var(--tire-black);">
+            ✓
+          </div>
+          <span class="handwritten-sticker" style="font-size: 1.1rem; margin-bottom: 1rem;">ORDER LOCKED IN</span>
+          <h2 style="font-size: clamp(3rem, 6vw, 4.5rem); margin-bottom: 1rem; color: var(--hog-green);">WE'RE ON IT.</h2>
+          <p style="font-size: 1.25rem; max-width: 620px; margin: 0 auto 2rem auto; color: #333;">
+            A Lawn Hog will be in touch shortly. Your property has been queued in Sector 4 and Steve's reign of terror is officially over.
+          </p>
+          <div style="background-color: var(--grass-clippings); border: 2px solid var(--tire-black); padding: 1.5rem; border-radius: var(--radius-sm); max-width: 500px; margin: 0 auto 2rem auto;">
+            <strong style="font-family: var(--font-slab); color: var(--hog-green); display: block; margin-bottom: 0.25rem;">DISPATCH HOTLINE:</strong>
+            <span style="font-family: var(--font-display); font-size: 2rem;">1-800-MOW-HOGS</span>
+          </div>
+          <a href="/" class="btn btn-primary">RETURN TO HOME &rarr;</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{{ end }}
