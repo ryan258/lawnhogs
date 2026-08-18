@@ -124,15 +124,22 @@ img {
   padding-bottom: $section-spacing;
   position: relative;
 
-  &--dark {
+  &--dark,
+  &.section-dark {
     background-color: $color-hog-green;
     color: $color-grass-clippings;
 
     .section-title,
     .standard-title,
     h1,
+    h2,
+    h3,
+    & > .container > h1,
     & > .container > h2,
-    & > .container > h3 {
+    & > .container > h3,
+    & > .container-narrow > h1,
+    & > .container-narrow > h2,
+    & > .container-narrow > h3 {
       color: $color-grass-clippings;
     }
 
@@ -147,21 +154,48 @@ img {
     }
   }
 
-  &--black {
+  &--black,
+  &.section-black {
     background-color: $color-tire-black;
     color: $color-grass-clippings;
 
     h1, h2, h3, h4 { color: $color-white; }
   }
 
-  &--pink {
+  &--pink,
+  &.section-pink {
     background-color: $color-pig-pink;
     color: $color-tire-black;
 
     h1, h2, h3 { color: $color-tire-black; }
   }
 
-  &--alt {
+  &--alt,
+  &.section-alt {
     background-color: $color-grass-clippings-alt;
   }
+}
+
+// Standalone class support
+.section-dark {
+  background-color: $color-hog-green;
+  color: $color-grass-clippings;
+
+  h1, h2, h3, .section-title {
+    color: $color-grass-clippings;
+  }
+}
+
+.section-black {
+  background-color: $color-tire-black;
+  color: $color-grass-clippings;
+}
+
+.section-pink {
+  background-color: $color-pig-pink;
+  color: $color-tire-black;
+}
+
+.section-alt {
+  background-color: $color-grass-clippings-alt;
 }
