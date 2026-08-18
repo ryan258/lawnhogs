@@ -61,7 +61,7 @@ body {
   padding: 0.75rem 1.5rem;
   font-weight: 700;
   z-index: 99999;
-  border: 2px solid $color-tire-black;
+  border: 1px solid $color-line;
   border-radius: $radius-sm;
   transition: top 0.2s ease;
 
@@ -75,19 +75,32 @@ body {
   outline-offset: 3px;
 }
 
+// Used by form labels in the footer; was referenced but never defined.
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-display;
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 0.98;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: $color-tire-black;
+  letter-spacing: 0.005em;
+  color: $color-hog-green;
 }
 
-h1 { font-size: clamp(3rem, 7vw, 6rem); }
-h2 { font-size: clamp(2.25rem, 5vw, 4.25rem); }
-h3 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
-h4 { font-size: clamp(1.25rem, 2.5vw, 1.85rem); }
+h1 { font-size: clamp(2.75rem, 6vw, 5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+h4 { font-size: clamp(1rem, 1.6vw, 1.15rem); }
 
 p {
   margin-bottom: 1.25rem;
@@ -119,6 +132,37 @@ img {
   }
 }
 
+// Section headers. The mockup sets these flush-left with a tight eyebrow →
+// title → subtitle stack; `.text-center` is the opt-in override.
+.section-header {
+  max-width: 780px;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.section-title {
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $color-text-muted;
+  max-width: 62ch;
+
+  &.centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.text-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  .section-subtitle { margin-left: auto; margin-right: auto; }
+}
+
 .section {
   padding-top: $section-spacing;
   padding-bottom: $section-spacing;
@@ -144,13 +188,11 @@ img {
     }
 
     .section-subtitle {
-      color: #c9d8d1;
+      color: $color-text-on-dark;
     }
 
     .eyebrow {
       color: $color-pig-pink;
-      background-color: rgba(255, 157, 181, 0.12);
-      border-left-color: $color-pig-pink;
     }
   }
 
@@ -168,6 +210,8 @@ img {
     color: $color-tire-black;
 
     h1, h2, h3 { color: $color-tire-black; }
+
+    .eyebrow { color: $color-tire-black; }
   }
 
   &--alt,

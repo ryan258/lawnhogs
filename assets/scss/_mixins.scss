@@ -31,46 +31,48 @@
   }
 }
 
-// Physical Button Base
+// Button Base
 @mixin button-base {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: $font-display;
-  font-size: 1.35rem;
-  letter-spacing: 0.06em;
+  font-family: $font-slab;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  padding: 0.85rem 1.85rem;
+  padding: 0.95rem 1.75rem;
   border-radius: $radius-sm;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   cursor: pointer;
   text-align: center;
-  transition: transform $transition-fast, box-shadow $transition-fast, background-color $transition-fast;
+  transition: transform $transition-fast, box-shadow $transition-fast, background-color $transition-fast, color $transition-fast;
   white-space: nowrap;
   position: relative;
   text-decoration: none;
+  line-height: 1;
 
   &:hover {
-    transform: translate(-2px, -2px);
+    transform: translateY(-1px);
   }
 
   &:active {
-    transform: translate(1px, 1px);
-    box-shadow: 2px 2px 0px $color-tire-black;
+    transform: translateY(0);
   }
 }
 
 // Card Base
 @mixin card-base {
   background-color: $color-white;
-  border: 2px solid $color-tire-black;
+  border: 1px solid $color-line;
   box-shadow: $shadow-hard;
-  border-radius: $radius-sm;
-  transition: transform $transition-normal, box-shadow $transition-normal;
+  border-radius: $radius-md;
+  transition: transform $transition-normal, box-shadow $transition-normal, border-color $transition-normal;
 
   &:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px);
     box-shadow: $shadow-hard-lg;
+    border-color: $color-line-strong;
   }
 }

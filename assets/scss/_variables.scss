@@ -3,9 +3,9 @@
 // ==========================================================================
 
 // Color Palette
-$color-hog-green: #1E3D2F;
-$color-hog-green-dark: #13271E;
-$color-hog-green-light: #2A5240;
+$color-hog-green: #16382A;
+$color-hog-green-dark: #0F2A1F;
+$color-hog-green-light: #245240;
 
 $color-fresh-cut: #6BA368;
 $color-fresh-cut-dark: #1A5319;
@@ -13,7 +13,9 @@ $color-fresh-cut-light: #8EC38B;
 
 $color-pig-pink: #FF9DB5;
 $color-pig-pink-hover: #FFB6C7;
-$color-pig-pink-deep: #D8456D;
+// Darkened from #D8456D: this is the label/meta/accent text colour and at
+// 0.6–0.9rem it has to clear WCAG AA 4.5:1 on both cream and white.
+$color-pig-pink-deep: #C22A55;
 
 $color-dirt-brown: #8B6B4E;
 $color-dirt-brown-dark: #3B2818;
@@ -25,9 +27,28 @@ $color-tire-black: #111111;
 $color-tire-black-surface: #1E1E1E;
 $color-white: #FFFFFF;
 
+// Surfaces & hairlines (mockup: thin warm rules, not black outlines)
+$color-line: #E4DFD1;
+$color-line-strong: #D3CCBA;
+$color-line-dark: rgba(255, 255, 255, 0.14);
+
+// Muted text ramp. All four light-background values clear AA 4.5:1 on both
+// $color-grass-clippings and $color-white, except -faint which is decorative
+// only (service card numbering) and must never carry meaning.
+$color-text-body: #3D4A44;
+$color-text-muted: #4C5A53;
+$color-text-subtle: #5F6D66;
+$color-text-faint: #A8B3AD;
+
+// On dark green surfaces.
+$color-text-on-dark: #B8CCC2;
+$color-text-on-dark-muted: #A7BDB2;
+
 // Typography Stacks
-$font-display: 'Bebas Neue', 'Anton', -apple-system, sans-serif;
-$font-slab: 'Alfa Slab One', 'Roboto Slab', serif;
+// $font-slab is the label/eyebrow/nav voice — the mockup uses a plain bold
+// grotesque there, not a slab, so it maps onto the body stack.
+$font-display: 'Anton', 'Bebas Neue', -apple-system, sans-serif;
+$font-slab: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 $font-hand: 'Permanent Marker', 'Caveat', cursive;
 $font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
@@ -38,15 +59,16 @@ $section-spacing: clamp(4rem, 8vw, 7.5rem);
 
 // Border Radii
 $radius-sm: 4px;
-$radius-md: 8px;
-$radius-lg: 12px;
+$radius-md: 6px;
+$radius-lg: 10px;
 
-// Physical Shadows
-$shadow-hard: 4px 4px 0px $color-tire-black;
-$shadow-hard-pink: 4px 4px 0px $color-pig-pink;
-$shadow-hard-green: 4px 4px 0px $color-hog-green;
-$shadow-hard-lg: 8px 8px 0px $color-tire-black;
-$shadow-hard-hover: 6px 6px 0px $color-tire-black;
+// Elevation. Names kept from the old hard-offset system so every existing
+// `box-shadow: $shadow-hard` call site inherits the mockup's soft elevation.
+$shadow-hard: 0 1px 2px rgba(16, 40, 30, 0.06), 0 2px 8px rgba(16, 40, 30, 0.05);
+$shadow-hard-pink: 0 2px 10px rgba(216, 69, 109, 0.14);
+$shadow-hard-green: 0 2px 12px rgba(16, 40, 30, 0.16);
+$shadow-hard-lg: 0 4px 12px rgba(16, 40, 30, 0.08), 0 12px 32px rgba(16, 40, 30, 0.07);
+$shadow-hard-hover: 0 6px 16px rgba(16, 40, 30, 0.12), 0 16px 40px rgba(16, 40, 30, 0.08);
 
 // Motion Transitions
 $transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
